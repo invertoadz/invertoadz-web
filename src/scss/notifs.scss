@@ -1,0 +1,53 @@
+.my-notif {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10px 20px 20px;
+    width: 80%;
+    max-width: 840px;
+    color: #fff;
+    -webkit-animation: slide-down 1s;
+    animation: slide-down 1s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    z-index: 99999;
+    background: #617bd1;
+
+    &.close {
+        -webkit-animation: slide-up 1s;
+        animation: slide-up 1s;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+    }
+
+    &.success {
+        background: #488e62!important;
+    }
+
+    &.info {
+        background: #617bd1;
+    }
+
+    &.prob {
+        background: #c92626!important;
+    }
+
+    .close-cross {
+        cursor: pointer;
+    }
+}
+
+@keyframes slide-down {
+    0%{transform:translateY(-100px) translateX(-50%)}
+    to{transform:translateY(0px) translateX(-50%)}
+}
+
+@keyframes slide-up {
+    0%{transform:translateY(0px) translateX(-50%)}
+    to{transform:translateY(-100px) translateX(-50%)}
+}
