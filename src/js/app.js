@@ -10,7 +10,7 @@ import { displayNotif } from './notifs.js';
 
 const contractABI='[{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"approved","type":"address"},{"indexed":true,"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"operator","type":"address"},{"indexed":false,"internalType":"bool","name":"approved","type":"bool"}],"name":"ApprovalForAll","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":true,"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"Transfer","type":"event"},{"inputs":[{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"approve","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"baseURI","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"flipSaleStarted","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"getApproved","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getPrice","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"operator","type":"address"}],"name":"isApprovedForAll","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"maxSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_nbTokens","type":"uint256"}],"name":"mint","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"ownerOf","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"safeTransferFrom","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"},{"internalType":"bytes","name":"_data","type":"bytes"}],"name":"safeTransferFrom","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"saleStarted","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"operator","type":"address"},{"internalType":"bool","name":"approved","type":"bool"}],"name":"setApprovalForAll","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"string","name":"_URI","type":"string"}],"name":"setBaseURI","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_newPrice","type":"uint256"}],"name":"setPrice","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes4","name":"interfaceId","type":"bytes4"}],"name":"supportsInterface","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"index","type":"uint256"}],"name":"tokenByIndex","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"uint256","name":"index","type":"uint256"}],"name":"tokenOfOwnerByIndex","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"tokenURI","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"transferFrom","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"withdraw","outputs":[],"stateMutability":"nonpayable","type":"function"}]'
 const contractAddress = '0x8A626F970488df69ddfbe047D2b6E4b1412EDf13'
-const osLink = 'https://opensea.io/account/invertoadz'
+const osLink = 'https://opensea.io/account/zdaot'
 
 const maxSupply = 7025
 const maxNFTPurchase = 20
@@ -36,7 +36,7 @@ const initialize = async () => {
 
         let chainId = await provider.request({ method: 'eth_chainId' })
         console.log(chainId)
-        if (chainId === '0x3') {
+        if (chainId === '0x1') {
             $('#connect-metamask').show()
             $('#connect-metamask').on('click', connect)
 
@@ -92,7 +92,7 @@ function connect() {
         currentAccount = null
         $('#connect-metamask').removeClass('connected').addClass('disconnected').html(`<img src="images/metamask-fox.svg" height="25" style="margin-right: 10px;"/>Connect to MetaMask`)
         if (hasSaleStarted) {
-            $('#wallet-fc h3').html('Connect to MetaMask to invert Toadz.').show()
+            $('#wallet-fc h3').html('Connect to MetaMask to reverse Toadz.').show()
         }
     } else if (accounts[0] !== currentAccount) {
         currentAccount = accounts[0]
@@ -119,7 +119,7 @@ async function mint() {
         $('#mint-loader').hide()
         $('#mint-group').show()
         if (transactionReceipt.status) {
-            displayNotif('info', "Toadz successfully inverted. Vibe!");
+            displayNotif('info', "Toadz successfully reversed. Vibe!");
            
         } else {
            displayNotif('prob', "Error with transaction.");
@@ -136,7 +136,7 @@ async function mint() {
             }
             else if(err.code==="UNPREDICTABLE_GAS_LIMIT")
             {
-                displayNotif('prob', "All ZDAOT have already been inverted.");
+                displayNotif('prob', "All ZDAOT have already been reversed.");
             }
             else{
 
@@ -173,18 +173,18 @@ async function updateApp() {
 
     if (currentAccount !== null && currentAccount !== undefined && hasSaleStarted) {
         let nbTokens = (await ethContract.balanceOf(currentAccount)).toNumber()
-        let textInverted = `You have inverted ${nbTokens} Toadz`
+        let textReversed = `You have reversed ${nbTokens} Toadz`
         console.log("UPDATE STATS")
         if (nbTokens > 0) {
-            $('#wallet-fc h3').html(`${textInverted}!<br><small>Check them on <a href="${osLink}" target="_blank">OpenSea</a>.</small>`).show()
+            $('#wallet-fc h3').html(`${textReversed}!<br><small>Check them on <a href="${osLink}" target="_blank">OpenSea</a>.</small>`).show()
         } else {
-            $('#wallet-fc h3').html(`${textInverted} :/`).show()
+            $('#wallet-fc h3').html(`${textReversed} :/`).show()
         }
 
         if (totalSupply >= maxSupply) {
             disableMintButton()
             $('#mint-group').hide()
-            $('#wallet-fc h3').html(`All Toadz have been inverted!<br>Check your ZDAOT on <a href="${osLink}" target="_blank">OpenSea</a>!`).show()
+            $('#wallet-fc h3').html(`All Toadz have been reversed!<br>Check your ZDAOT on <a href="${osLink}" target="_blank">OpenSea</a>!`).show()
         } else {
 
             $('#mint-group').show()
