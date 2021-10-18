@@ -14,7 +14,7 @@ const osLink = 'https://opensea.io/account/zdaot'
 
 const maxSupply = 6969
 const maxNFTPurchase = 20
-const nftPrice = 0.01
+const nftPrice = 0
 let currentAccount = null
 
 let provider = null
@@ -174,7 +174,6 @@ async function updateApp() {
     if (currentAccount !== null && currentAccount !== undefined && hasSaleStarted) {
         let nbTokens = (await ethContract.balanceOf(currentAccount)).toNumber()
         let textReversed = `You have reversed ${nbTokens} Toadz`
-        console.log("UPDATE STATS")
         if (nbTokens > 0) {
             $('#wallet-fc h3').html(`${textReversed}!<br><small>Check them on <a href="${osLink}" target="_blank">OpenSea</a>.</small>`).show()
         } else {
@@ -222,9 +221,8 @@ function displayTotalPrice(nbTokens) {
         disableMintButton()
         $('#total-price').html('<span class="warning">Min = 1 &#129376;<br> Max = 20 &#129376;</span>')
     } else {
-        console.log("ENABLE MINT")
         enableMintButton()
-        $('#total-price').html(`${nbTokens} ZDAOT = ${nbTokens} ZDAOT = <b>${nbTokens * nftPrice}</b> ETH`)
+        $('#total-price').html(`${nbTokens} ZDAOT = <b>${nbTokens * nftPrice}</b> ETH`)
     }
 }
 
